@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -12,6 +13,9 @@ app.use(bodyParser.json());
 // CORS middleware
 app.use(cors());
 
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // DB Config
 const db = require('./config/keys').mongoURI;
 
@@ -22,10 +26,6 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Use Routes
 app.use('/api/tags', tags);
-
-app.get('/', (req,res) => {
-  res.send('<h1>Hello World</h1>');
-});
 
 const port = process.env.PORT || 8080;
 
