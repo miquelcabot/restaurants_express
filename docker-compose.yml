@@ -4,28 +4,17 @@ version: '3'
 # https://medium.com/faun/managing-mongodb-on-docker-with-docker-compose-26bf8a0bbae3
 
 services:
-    client:
-        build:
-            context: .
-            dockerfile: Dockerfile_client
-        container_name: restaurants_client
-        volumes: ['./client:/usr/src/app']
-        restart: always
-        ports:
-            - '8080:8080'
-        links:
-            - server
-    server:
-        build:
-            context: .
-            dockerfile: Dockerfile_server
-        container_name: restaurants_server
-        volumes: ['./server:/usr/src/app']
-        restart: always
-        ports:
-            - '5000:5000'
-        links:
-            - mongo
+    # server:
+    #     build:
+    #         context: .
+    #         dockerfile: Dockerfile
+    #     container_name: restaurants_server
+    #     volumes: ['./:/usr/src/app']
+    #     restart: always
+    #     ports:
+    #         - '8080:8080'
+    #     links:
+    #         - mongo
     mongo:
         image: mongo
         container_name: restaurants_mongo

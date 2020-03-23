@@ -1,10 +1,21 @@
-# restaurants_mevn_docker
-Web de restaurants amb MEVN sobre Docker.
+# restaurants_express
+Web de restaurants amb Express i MongoDB sobre Docker.
 
 ## Quick Start
 
+To run express server in development mode:
 ```bash
-# Run in Docker
+npm run dev
+```
+
+To run express server in production mode:
+```bash
+npm run start
+```
+
+
+```bash
+# Run MongoDB in Docker
 docker-compose up
 # use -d flag to run in background
 

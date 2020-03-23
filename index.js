@@ -17,15 +17,19 @@ const db = require('./config/keys').mongoURI;
 
 // Connect to Mongo
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected...'))
-    .catch(err => console.log(err));
+  .then(() => console.log('MongoDB connected...'))
+  .catch(err => console.log(err));
 
 // Use Routes
 app.use('/api/tags', tags);
 
-const port = process.env.PORT || 5000;
+app.get('/', (req,res) => {
+  res.send('<h1>Hello World</h1>');
+});
+
+const port = process.env.PORT || 8080;
 
 app.listen(
-    port, 
-    () => console.log(`Server started on port ${port}`)
+  port, 
+  () => console.log(`Server started on port ${port}`)
 );
